@@ -1,0 +1,5 @@
+Flask==3.0.3
+humanize==4.9.0
+python_bcrypt==0.3.2
+sirope==0.3.1
+Werkzeug==3.0.3
