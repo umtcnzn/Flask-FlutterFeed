@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="text-center text-3xl font-bold">Register</h2>
+        <form id="registerForm" method="POST" action="{{ url_for('auth_routes.register') }}">
+            <div class="form-group">
+                <label for="username">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>  
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="username">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mt-4 flex justify-end">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>   
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    var username = document.getElementById("username").value;
+
+    if (password.length < 3) {
+        alert("Password must be at least 4 characters long.");
+        event.preventDefault();
+        return
+    }
+
+    if (!isValidEmail(email)) {
+        alert("Please enter a valid email address.");
+        event.preventDefault();
+        return
+    }
+
+    if (username.trim().length < 3) {
+        alert("Username must be at least 4 characters long.");
+        event.preventDefault();
+        return
+    }
+    if (name.trim().length < 3) {
+        alert("Name must be at least 4 characters long.");
+        event.preventDefault();
+        return
+    }
+});
+
+function isValidEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+</script>
+
+{% endblock %}

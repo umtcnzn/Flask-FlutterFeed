@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}User Not Found{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 mt-4">
+    <a href="javascript:history.back()" class="text-blue-500 hover:text-blue-700 flex items-center">
+        <i class="bi bi-arrow-left mr-1"></i> Back
+    </a>
+    <div class="flex flex-col items-center">
+        <div class="w-full md:w-3/4 lg:w-1/2 bg-white p-6 rounded-lg shadow-md text-center">
+            <h1 class="text-3xl font-bold mb-4">User Not Found</h1>
+            <p class="text-gray-600 mb-6">Sorry, the user you are looking for does not exist.</p>
+            <a href="{{ url_for('html_routes.home') }}" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Return to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
